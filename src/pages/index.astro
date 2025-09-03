@@ -1,0 +1,23 @@
+---
+import PlotFigure from "../components/PlotFigure.astro";
+import * as d3 from "d3";
+
+const response = await fetch("https://raw.githubusercontent.com/uwdata/draco/main/data/penguins.csv");
+const csvText = await response.text();
+const penguins = d3.csvParse(csvText);
+---
+
+<h1>Exemple Plot avec Astro</h1>
+
+<PlotFigure
+  options={{
+    marks: [
+      Plot.dot(pinguin, {
+        x: "flipper_length_mm",
+        y: "body_mass_g",
+        stroke: "species"
+      })
+    ]
+  }}
+/>
+n
