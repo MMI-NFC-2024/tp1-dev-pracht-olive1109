@@ -2,6 +2,7 @@
 import PlotFigure from "../components/PlotFigure.astro";
 import * as Plot from "@observablehq/plot";
 import penguin from "../assets/penguin.json";
+import diamonds from "../assets/diamonds.json";
 ---
 
 <h1>Exemple Plot avec Astro : Penguins</h1>
@@ -14,6 +15,18 @@ import penguin from "../assets/penguin.json";
         y: "body_mass_g",
         stroke: "species"
       })
+    ]
+  }}
+/>
+
+
+<h1>Exemple Plot avec Astro : Diamonds</h1>
+<PlotFigure
+  options={{
+    x: {label: "Carats"},
+    y: {label: "Prix ($)", type: "log"}, // échelle logarithmique pour mieux voir les valeurs
+    marks: [
+      Plot.dot(diamonds, {x: "carat", y: "price", stroke: "cut"})
     ]
   }}
 />
