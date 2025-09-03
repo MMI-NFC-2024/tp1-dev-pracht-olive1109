@@ -2,21 +2,18 @@
 import PlotFigure from "../components/PlotFigure.astro";
 import * as Plot from "@observablehq/plot";
 import penguin from "../assets/penguin.json";
-layout: "../layouts/BaseLayout.astro"
-const optionsPenguin = {
-  marks: [
-    Plot.dot(penguin, {
-      x: "flipper_length_mm",
-      y: "body_mass_g",
-      stroke: "species"
-    })
-  ]
-};
 ---
 
-<section class="bg-white rounded-xl shadow-lg p-6 mb-8 hover:shadow-xl transition-shadow duration-300">
-  <h2 class="text-2xl font-bold mb-6 text-blue-600">Penguins</h2>
-  <div class="w-full overflow-x-auto">
-    <PlotFigure options={optionsPenguin} />
-  </div>
-</section>
+<h1>Exemple Plot avec Astro : Penguins</h1>
+
+<PlotFigure
+  options={{
+    marks: [
+      Plot.dot(penguin, {
+        x: "flipper_length_mm",
+        y: "body_mass_g",
+        stroke: "species"
+      })
+    ]
+  }}
+/>
